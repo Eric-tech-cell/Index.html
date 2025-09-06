@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Wave - Inscription & Parrainage</title>
+<style>
+body {font-family: Arial, sans-serif;margin:0;padding:0;
+  background: url('/iCUE_MURALS_ENVIRONM.width-1000.bgcolor-000.format-webp.webp') no-repeat center center fixed;
+  background-size: cover;color:#fff;}
+.overlay {background: rgba(0,50,80,0.75);min-height:100vh;padding:20px;}
+h1,h2,h3,h4{text-align:center;color:#00ffcc;}
+form,.client-space,ul.formations,table{max-width:480px;margin:15px auto;background: rgba(255,255,255,0.1);padding:20px;border-radius:10px;}
+label{display:block;margin-top:10px;font-weight:bold;color:#00ffcc;}
+input,select{width:100%;padding:10px;margin-top:5px;border-radius:5px;border:none;}
+button{margin-top:15px;width:100%;padding:12px;border:none;border-radius:5px;background:linear-gradient(to right,#00ccff,#00ffcc);color:#000;font-weight:bold;cursor:pointer;transition: transform 0.2s ease;}
+button:hover{transform: scale(1.05);}
+table{width:100%;margin:15px 0;border-collapse:collapse;overflow-x:auto;display:block;}
+th,td{padding:10px;text-align:center;border:1px solid #fff;}
+th{background: rgba(0,255,200,0.3);}
+.admin-btn{background:red;color:white;padding:5px 10px;border:none;border-radius:5px;cursor:pointer;}
+.whatsapp{position:fixed;bottom:15px;right:15px;background:#25D366;color:#fff;padding:10px 15px;border-radius:50px;text-decoration:none;font-weight:bold;z-index:1000;}
+.hidden{display:none;}
+.alert{color:#ff0;font-weight:bold;}
+#pubZone{margin-top:20px;padding:10px;background: rgba(0,255,200,0.2);border-radius:5px;overflow:hidden;}
+#pubZone a{color:#fff;font-weight:bold;text-decoration:none;}
+ul.formations li{margin:5px 0;color:#00ffcc;font-weight:bold;}
+#pubContent {transition: opacity 1s ease-in-out; opacity: 1;}
+#pubContent.fade-out {opacity: 0;}
+.lang-btn{position:fixed;top:10px;right:10px;padding:8px 12px;background:#00ffcc;color:#000;border-radius:5px;font-weight:bold;cursor:pointer;z-index:1000;}
+@media (max-width: 480px) {
+  form, .client-space, ul.formations, table {width: 95% !important;margin: 10px auto !important;padding: 15px !important;font-size: 14px;}
+  button {padding: 10px !important;font-size: 14px !important;}
+  table th, table td {padding: 8px !important;font-size: 12px;}
+  #pubContent img, #pubContent video {max-width: 100% !important;}
+  .whatsapp {padding: 8px 12px !important;bottom: 10px !important;right: 10px !important;font-size: 12px;}
+}
+</style>
+</head>
+<body>
+<div class="overlay">
+<button class="lang-btn" onclick="toggleLang()">English / Français</button>
+<h1 id="title">Fiche d'inscription - Digital Wave</h1>
+
+<ul class="formations" id="formationsList">
+<h3 id="formationsTitle">Formations disponibles :</h3>
+<li><b>Boostage des comptes :</b> Augmentez rapidement vos followers et engagement.</li>
+<li><b>Numéro WhatsApp :</b> Stratégie et automatisation pour vos ventes.</li>
+<li><b>Email stratégie de vente en ligne :</b> Techniques avancées d’email marketing.</li>
+<li><b>Création d'une IA :</b> Introduction à l’intelligence artificielle et automatisation.</li>
+<li><b>Création ebook :</b> Rédaction, design et mise en ligne de vos ebooks.</li>
+<li><b>Design graphique :</b> Canva, Pixel Art et visuels professionnels.</li>
+<li><b>Vidéo animée :</b> Réalisation de vidéos animées pour vos projets.</li>
+<li><b>Création portfolio :</b> Construire un portfolio impactant pour clients ou employeurs.</li>
+<li><b>Email professionnel :</b> Création et gestion d’emails professionnels.</li>
+<li><b>Monétisation des comptes :</b> Techniques pour générer des revenus avec vos comptes en ligne.</li>
+</ul>
+
+<form id="inscriptionForm">
+<label id="labelNom">Nom :</label><input type="text" id="nom" required>
+<label id="labelPrenom">Prénom :</label><input type="text" id="prenom" required>
+<label id="labelVille">Ville :</label><input type="text" id="ville" required>
+<label id="labelFormation">Formation souhaitée :</label>
+<select id="formation" required>
+<option value="Boostage des comptes">Boostage des comptes</option>
+<option value="237658024221">Numéro WhatsApp</option>
+<option value="Email stratégie de vente en ligne">Email stratégie de vente en ligne</option>
+<option value="Création d'une IA">Création d'une IA</option>
+<option value="Création ebook">Création ebook</option>
+<option value="Design graphique">Design graphique</option>
+<option value="Vidéo animée">Vidéo animée</option>
+<option value="Création portfolio">Création portfolio</option>
+<option value="Email professionnel">Email professionnel</option>
+<option value="Monétisation des comptes">Monétisation des comptes</option>
+</select>
+<label id="labelPrix">Prix minimum de la formation :</label><input type="text" value="15500 frs" readonly>
+<label id="labelWhatsapp">Numéro WhatsApp :</label><input type="text" id="numWhatsapp" placeholder="2376xxxxxxx" required>
+<label id="labelDepot">Numéro du dépôt (MTN / Orange Money) :</label><input type="text" id="numDepot" placeholder="2376xxxxxxx" required>
+<label>Code Parrainage (facultatif) :</label><input type="text" id="codeParrain" placeholder="Ex: DW12345">
+<button type="submit" id="submitBtn">S'inscrire</button>
+</form>
+
+<div class="client-space">
+<h2>Espace Parrain</h2>
+<label>Entrez votre code parrainage :</label>
+<input type="text" id="loginCode" placeholder="Ex: DW12345">
+<button onclick="loginParrain()">Se connecter</button>
+
+<div id="clientDashboard" class="hidden">
+<h3>Bienvenue <span id="clientName"></span></h3>
+<p><b>Ville :</b> <span id="clientVille"></span></p>
+<p><b>Formation :</b> <span id="clientFormation"></span></p>
+<p><b>Code Parrainage :</b> <span id="clientCode"></span></p>
+<p><b>Nombre de filleuls :</b> <span id="clientFilleuls"></span></p>
+<p><b>Gains cumulés :</b> <span id="clientGains"></span> frs</p>
+<button id="retraitBtn" onclick="demanderRetrait()" style="display:none;">💵 Demander un retrait</button>
+
+<div id="pubZone" class="hidden">
+<h4>Publicité pour vous</h4>
+<div id="pubContent"></div>
+</div>
+</div>
+</div>
+
+<h2>Tableau des Profits (Admin)</h2>
+<table id="profitTable">
+<thead><tr>
+<th>Nom du Parrain</th>
+<th>Code Parrainage</th>
+<th>Filleuls</th>
+<th>Gains (1 500 frs/parrainage)</th>
+<th>Retraits en attente</th>
+<th>Action Admin</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+
+<a class="whatsapp" href="https://wa.me/237658024221" target="_blank">WhatsApp</a>
+
+<script>
+// Traductions FR/EN
+const translations = {
+"en": {"title":"Digital Wave Registration","formationsTitle":"Available Courses:","submitBtn":"Register","loginFail":"Referral code incorrect!","loginSuccess":"Successfully logged in!","withdrawFail":"You must refer at least 3 clients before requesting a withdrawal!","withdrawMsg":"Withdrawal request sent!"},
+"fr": {"title":"Fiche d'inscription - Digital Wave","formationsTitle":"Formations disponibles :","submitBtn":"S'inscrire","loginFail":"Code parrainage incorrect !","loginSuccess":"Connexion réussie !","withdrawFail":"Vous devez parrainer au moins 3 clients avant de demander un retrait !","withdrawMsg":"Demande de retrait envoyée !"}
+};
+let currentLang="fr";
+function toggleLang(){
+  currentLang=currentLang==="fr"?"en":"fr";
+  const t=translations[currentLang];
+  document.getElementById('title').innerText=t.title;
+  document.getElementById('formationsTitle').innerText=t.formationsTitle;
+  document.getElementById('submitBtn').innerText=t.submitBtn;
+}
+
+// Données
+const clients=[];
+const pubs=[
+  {type:"image",src:"https://images.unsplash.com/photo-1601597114249-4b9c91a3b6fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",texte:"Boost your sales!",lien:"#"},
+  {type:"video",src:"https://www.w3schools.com/html/mov_bbb.mp4",texte:"AI Creation",lien:"#"},
+  {type:"image",src:"https://images.unsplash.com/photo-1593642532871-8b12e02d091c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",texte:"Graphic Design Canvas Pixel",lien:"#"},
+  {type:"video",src:"https://www.w3schools.com/html/movie.mp4",texte:"Account Monetization",lien:"#"}
+];
+
+const form=document.getElementById('inscriptionForm');
+const tableBody=document.querySelector('#profitTable tbody');
+
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  const nom=document.getElementById('nom').value;
+  const prenom=document.getElementById('prenom').value;
+  const ville=document.getElementById('ville').value;
+  const formation=document.getElementById('formation').value;
+  const numWhatsapp=document.getElementById('numWhatsapp').value;
+  const numDepot=document.getElementById('numDepot').value;
+  const codeParrain=document.getElementById('codeParrain').value.trim();
+
+  const client={nom:nom+' '+prenom, ville, formation, codeParrainage:'DW'+Math.floor(Math.random()*100000), filleuls:0, gains:0, retraitDemandes:0, numWhatsapp, numDepot};
+  clients.push(client);
+
+  if(codeParrain){
+    const parrain=clients.find(c=>c.codeParrainage===codeParrain);
+    if(parrain){
+      parrain.filleuls++;
+      parrain.gains=parrain.filleuls*1500;
+      notifierParrain(parrain.codeParrainage);
+      document.getElementById('filleuls-'+parrain.codeParrainage)?.innerText=parrain.filleuls;
+      document.getElementById('gains-'+parrain.codeParrainage)?.innerText=parrain.gains+' frs';
+    }
+  }
+
+  const row=document.createElement('tr');
+  row.id='row-'+client.codeParrainage;
+  row.innerHTML=`<td>${client.nom}</td><td>${client.codeParrainage}</td><td id="filleuls-${client.codeParrainage}">0</td><td id="gains-${client.codeParrainage}">0 frs</td><td id="retrait-${client.codeParrainage}"></td><td><button class="admin-btn" onclick="ajouterFilleul('${client.codeParrainage}')">+1 Filleul</button></td>`;
+  tableBody.appendChild(row);
+
+  const message=`Nouvelle inscription :%0ANom : ${client.nom}%0AVille : ${client.ville}%0AFormation : ${client.formation}%0ACode Parrainage : ${client.codeParrainage}%0ANuméro WhatsApp : ${client.numWhatsapp}%0ANuméro dépôt : ${client.numDepot}`;
+  window.open(`https://wa.me/237658024221?text=${message}`,'_blank');
+  form.reset();
+});
+
+// Fonctions parrain
+function ajouterFilleul(code){
+  const client=clients.find(c=>c.codeParrainage===code);
+  if(client){
+    client.filleuls++;
+    client.gains=client.filleuls*1500;
+    document.getElementById('filleuls-'+code).innerText=client.filleuls;
+    document.getElementById('gains-'+code).innerText=client.gains+' frs';
+    notifierParrain(code);
+    const actif=JSON.parse(sessionStorage.getItem('clientActif'));
+    if(actif&&actif.codeParrainage===code&&client.filleuls>=3){
+      document.getElementById('retraitBtn').style.display='block';
+    }
+  }
+}
+
+function loginParrain(){
+  const code=document.getElementById('loginCode').value.trim();
+  const client=clients.find(c=>c.codeParrainage===code);
+  if(!client){
+alert(translations[currentLang].loginFail);
+return;
+}
+alert(translations[currentLang].loginSuccess);
+sessionStorage.setItem('clientActif', JSON.stringify(client));
+document.getElementById('clientDashboard').classList.remove('hidden');
+document.getElementById('clientName').innerText = client.nom;
+document.getElementById('clientVille').innerText = client.ville;
+document.getElementById('clientFormation').innerText = client.formation;
+document.getElementById('clientCode').innerText = client.codeParrainage;
+document.getElementById('clientFilleuls').innerText = client.filleuls;
+document.getElementById('clientGains').innerText = client.gains + ' frs';
+if (client.filleuls >= 3) {
+  document.getElementById('retraitBtn').style.display = 'block';
+}
+startPubRotation();
+}
+
+function demanderRetrait() {
+  const client = JSON.parse(sessionStorage.getItem('clientActif'));
+  if (client.filleuls < 3) {
+    alert(translations[currentLang].withdrawFail);
+    return;
+  }
+  alert(translations[currentLang].withdrawMsg);
+  // Envoi WhatsApp pour traitement manuel
+  const message = `Demande de retrait :%0ANom : ${client.nom}%0ACode Parrainage : ${client.codeParrainage}%0AGains : ${client.gains} frs%0ANuméro dépôt : ${client.numDepot}`;
+  window.open(`https://wa.me/237658024221?text=${message}`, '_blank');
+  client.retraitDemandes++;
+  document.getElementById('retrait-' + client.codeParrainage).innerText = client.retraitDemandes;
+  document.getElementById('retraitBtn').style.display = 'none';
+}
+
+// Notification parrain
+function notifierParrain(code) {
+  const parrain = clients.find(c => c.codeParrainage === code);
+  if (parrain) {
+    const message = `Félicitations ! Vous avez un nouveau filleul.%0ANom : ${parrain.nom}%0AGains actuels : ${parrain.gains} frs`;
+    window.open(`https://wa.me/237658024221?text=${message}`, '_blank');
+  }
+}
+
+// Rotation des pubs
+function startPubRotation() {
+  const pubContent = document.getElementById('pubContent');
+  document.getElementById('pubZone').classList.remove('hidden');
+  let index = 0;
+  setInterval(() => {
+    pubContent.classList.add('fade-out');
+    setTimeout(() => {
+      const pub = pubs[index];
+      if (pub.type === "image") {
+        pubContent.innerHTML = `<a href="${pub.lien}" target="_blank"><img src="${pub.src}" style="max-width:100%;border-radius:10px;"><p>${pub.texte}</p></a>`;
+      } else if (pub.type === "video") {
+        pubContent.innerHTML = `<a href="${pub.lien}" target="_blank"><video src="${pub.src}" autoplay muted loop style="max-width:100%;border-radius:10px;"></video><p>${pub.texte}</p></a>`;
+      }
+      pubContent.classList.remove('fade-out');
+      index = (index + 1) % pubs.length;
+    }, 1000);
+  }, 30000);
+}
+
+// Start pub immediately on login if client already logged
+window.onload = function() {
+  const actif = JSON.parse(sessionStorage.getItem('clientActif'));
+  if (actif) {
+    document.getElementById('loginCode').value = actif.codeParrainage;
+    loginParrain();
+  }
+}
+</script> 
+<footer style="text-align:center;color:#00ffcc;padding:15px;font-size:14px;">
+  &copy; 2025 Digital Wave. Created by Fon Eric.
+</footer>
